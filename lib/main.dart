@@ -1,51 +1,18 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:super_app/screens/tasks_screen.dart';
+import 'package:provider/provider.dart';
+import 'package:super_app/models/task_data.dart';
 
-void main() => runApp(
-  MaterialApp(
-    home: BallPage(),
-  ),
-);
+void main() => runApp(MyApp());
 
-class BallPage extends StatelessWidget {
+class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.blue,
-      appBar: AppBar(
-        backgroundColor: Colors.blue.shade900,
-        title: Text('Ask Me Anything'),
+    return ChangeNotifierProvider(
+      builder: (context) => TaskData(),
+      child: MaterialApp(
+        home: TasksScreen(),
       ),
-      body: Ball(),
     );
   }
 }
-
-class Ball extends StatefulWidget {
-
-  @override
-  _BallState createState() => _BallState();
-}
-
-class _BallState extends State<Ball> {
-  int ballNumber = 1;
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child:
-          FlatButton(
-            onPressed: (){
-              setState(() {
-                ballNumber = Random().nextInt(5)+1;
-              });
-              print('Clicked');
-            },
-            child:  Image.asset('images/ball$ballNumber.png'),
-          ),
-    );
-  }
-}
-
-
-
-
