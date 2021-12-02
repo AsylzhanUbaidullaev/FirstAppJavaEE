@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'my_cart.dart';
+import 'package:super_app/screens/google_map.dart';
+
+
 
 
 void main() => runApp(MyApp());
@@ -8,14 +9,12 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: "Flutter Demo",
+    return MaterialApp(
+      title: "7 Food на карте",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-
-
       ),
-      home: MyCart(),
+      home: GoogleMapScreen(),
     );
   }
 }

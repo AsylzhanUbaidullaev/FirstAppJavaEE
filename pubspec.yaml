@@ -11,6 +11,9 @@ environment:
 
 dependencies:
   email_validator: "0.1.4"
+  smooth_star_rating: 1.1.1
+  geolocator: ^3.0.1
+  google_map_flutter: ^1.0.5
   form_field_validator: ^1.0.1
   wc_form_validators: ^0.1.1
   curved_navigation_bar:
@@ -18,7 +21,6 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.0
-  rate_my_app: ^0.4.0
   provider: ^3.0.0+1
   get:
 
