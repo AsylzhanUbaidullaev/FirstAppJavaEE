@@ -10,19 +10,16 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  email_validator: "0.1.4"
-  smooth_star_rating: 1.1.1
-  geolocator: ^3.0.1
-  google_map_flutter: ^1.0.5
-  form_field_validator: ^1.0.1
-  wc_form_validators: ^0.1.1
-  curved_navigation_bar:
   flutter:
     sdk: flutter
+  provider: ^4.3.1
+  http: ^0.12.1
+  shared_preferences: ^0.5.8
+  flushbar: ^1.10.4
+  cupertino_icons: ^0.1.2
+  webview_flutter: ^0.3.17
 
-  cupertino_icons: ^1.0.0
-  provider: ^3.0.0+1
-  get:
+
 
 dev_dependencies:
   flutter_test:
