@@ -3,11 +3,11 @@
 import 'meal_model.dart';
 
 class MealPlan {
-  final List<Meal> meals;
-  final double calories;
-  final double carbs;
-  final double fat;
-  final double protein;
+  final List<Meal>? meals;
+  final double? calories;
+  final double? carbs;
+  final double? fat;
+  final double? protein;
 
   MealPlan({
     this.meals,

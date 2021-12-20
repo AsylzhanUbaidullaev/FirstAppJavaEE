@@ -1,3 +1,4 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:super_app/providers/auth_provider.dart';
@@ -26,28 +27,30 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_)=>UserProvider())
       ],
       child:  MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Login Registration',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
-        home: FutureBuilder(
-            future: getUserData(),
-            builder: (context, snapshot) {
-              switch (snapshot.connectionState) {
-                case ConnectionState.none:
-                case ConnectionState.waiting:
-                  return CircularProgressIndicator();
-                default:
-                  if (snapshot.hasError)
-                    return Text('Error: ${snapshot.error}');
-                  else if (snapshot.data.token == null)
-                    return Login();
-                  else
-                    Provider.of<UserProvider>(context).setUser(snapshot.data);
-                  return DashBoard();
+        home: Register(),
+        // FutureBuilder(
+        //     future: getUserData(),
+        //     builder: (context, snapshot) {
+        //       switch (snapshot.connectionState) {
+        //         case ConnectionState.none:
+        //         case ConnectionState.waiting:
+        //           return CircularProgressIndicator();
+        //         default:
+        //           if (snapshot.hasError)
+        //             return Text('Error: ${snapshot.error}');
+        //           else if (snapshot.data.token == null)
+        //             return Login();
+        //           else
+        //             Provider.of<UserProvider>(context).setUser(snapshot.data);
+        //           return DashBoard();
 
-              }
-            }),
+        //       }
+        //     }),
         routes: {
           '/login':(context)=>Login(),
           '/register':(context)=>Register(),

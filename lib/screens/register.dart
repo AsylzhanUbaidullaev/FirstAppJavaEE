@@ -18,7 +18,7 @@ class _RegisterState extends State<Register> {
   final formKey = GlobalKey<FormState>();
 
 
-  String _username , _password, _confirmPassword;
+  late String _username , _password, _confirmPassword;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class _RegisterState extends State<Register> {
       print('on doRegister');
 
       final form = formKey.currentState;
-      if(form.validate()){
+      if(form!.validate()){
 
         form.save();
 
@@ -97,8 +97,8 @@ class _RegisterState extends State<Register> {
                 Text('Email'),
                 TextFormField(
                   autofocus: false,
-                  validator: validateEmail,
-                  onSaved: (value) => _username = value,
+                  // validator: validateEmail,
+                  onSaved: (value) => _username = value!,
                   decoration: buildInputDecoration("Enter Email", Icons.email),
                 ),
                 SizedBox(height: 20.0,),
@@ -107,8 +107,8 @@ class _RegisterState extends State<Register> {
                 TextFormField(
                   autofocus: false,
                   obscureText: true,
-                  validator: (value)=>value.isEmpty?'Please enter password':null,
-                  onSaved: (value) => _password = value,
+                  validator: (value)=>value!.isEmpty?'Please enter password':null,
+                  onSaved: (value) => _password = value!,
                   decoration: buildInputDecoration("Enter Password", Icons.lock),
                 ),
                 SizedBox(height: 20.0,),
@@ -116,8 +116,8 @@ class _RegisterState extends State<Register> {
                 TextFormField(
                   autofocus: false,
                   obscureText: true,
-                  validator: (value)=>value.isEmpty?'Your password is required':null,
-                  onSaved: (value) => _confirmPassword = value,
+                  validator: (value)=>value!.isEmpty?'Your password is required':null,
+                  onSaved: (value) => _confirmPassword = value!,
                   decoration: buildInputDecoration("Enter Confirm Password", Icons.lock),
                 ),
                 SizedBox(height: 20.0,),

@@ -29,14 +29,14 @@ class _SearchScreenState extends State<SearchScreen> {
   String _diet = 'None';
 
   void _searchMealPlan() async {
-    MealPlan mealPlan = await APIService.instance.generateMealPlan(
-      targetCalories: _targetCalories.toInt(),
-      diet: _diet,
-    );
+    // MealPlan mealPlan = await APIService.instance.generateMealPlan(
+    //   targetCalories: _targetCalories.toInt(),
+    //   diet: _diet,
+    // );
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (_) => MealsScreen(mealPlan: mealPlan),
+        builder: (_) => MealsScreen(),
       ),
     );
   }
@@ -78,10 +78,10 @@ class _SearchScreenState extends State<SearchScreen> {
                 SizedBox(height: 20.0),
                 RichText(
                   text: TextSpan(
-                    style: Theme.of(context)
-                        .textTheme
-                        .body1
-                        .copyWith(fontSize: 25),
+                    // style: Theme.of(context)
+                    //     .textTheme
+                    //     // .body1
+                    //     .copyWith(fontSize: 25),
                     children: [
                       TextSpan(
                         text: _targetCalories.truncate().toString(),
@@ -136,7 +136,7 @@ class _SearchScreenState extends State<SearchScreen> {
                     ),
                     onChanged: (value) {
                       setState(() {
-                        _diet = value;
+                        _diet = value.toString();
                       });
                     },
                     value: _diet,

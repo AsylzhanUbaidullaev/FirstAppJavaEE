@@ -7,9 +7,9 @@ import 'package:super_app/services/api_service.dart';
 
 
 class MealsScreen extends StatefulWidget {
-  final MealPlan mealPlan;
+  // final MealPlan? mealPlan;
 
-  MealsScreen({this.mealPlan});
+  // MealsScreen({this.mealPlan});
 
   @override
   _MealsScreenState createState() => _MealsScreenState();
@@ -50,14 +50,16 @@ class _MealsScreenState extends State<MealsScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Calories: ${widget.mealPlan.calories.toString()} cal',
+                // 'Calories: ${widget.mealPlan!.calories.toString()} cal',
+                'Calories: 100 cal',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               Text(
-                'Protein: ${widget.mealPlan.protein.toString()} g',
+                // 'Protein: ${widget.mealPlan!.protein.toString()} g',
+                'Protein: 100 g',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
@@ -70,14 +72,16 @@ class _MealsScreenState extends State<MealsScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Fat: ${widget.mealPlan.fat.toString()} g',
+                // 'Fat: ${widget.mealPlan!.fat.toString()} g',
+                'Fat: 100 g',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
                 ),
               ),
               Text(
-                'Carbs: ${widget.mealPlan.carbs.toString()} g',
+                // 'Carbs: ${widget.mealPlan!.carbs.toString()} g',
+                'Carbs: 100 g',
                 style: TextStyle(
                   fontSize: 20.0,
                   fontWeight: FontWeight.w600,
@@ -90,18 +94,20 @@ class _MealsScreenState extends State<MealsScreen> {
     );
   }
 
-  _buildMealCard(Meal meal, int index) {
+  _buildMealCard(
+    // Meal meal, 
+    int index) {
     String mealType = _mealType(index);
     return GestureDetector(
       onTap: () async {
-        Recipe recipe =
-        await APIService.instance.fetchRecipe(meal.id.toString());
+        // Recipe recipe =
+        // await APIService.instance.fetchRecipe(meal.id.toString());
         Navigator.push(
           context,
           MaterialPageRoute(
             builder: (_) => RecipeScreen(
               mealType: mealType,
-              recipe: recipe,
+              // recipe: recipe,
             ),
           ),
         );
@@ -123,7 +129,8 @@ class _MealsScreenState extends State<MealsScreen> {
             decoration: BoxDecoration(
               color: Colors.white,
               image: DecorationImage(
-                image: NetworkImage(meal.imageUrl),
+                // image: NetworkImage(meal.imageUrl!),
+                image: NetworkImage('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/190326-spicy-salmon-bowl-horizontal-1556024100.png?crop=0.669xw:1.00xh;0.0308xw,0&resize=640:*'),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(15.0),
@@ -143,7 +150,8 @@ class _MealsScreenState extends State<MealsScreen> {
             child: Column(
               children: <Widget>[
                 Text(
-                  mealType,
+                  // mealType,
+                  'Type',
                   style: TextStyle(
                     fontSize: 30.0,
                     fontWeight: FontWeight.bold,
@@ -151,7 +159,8 @@ class _MealsScreenState extends State<MealsScreen> {
                   ),
                 ),
                 Text(
-                  meal.title,
+                  // meal.title!,
+                  'Meal title',
                   style: TextStyle(
                     fontSize: 24.0,
                     fontWeight: FontWeight.w600,
@@ -186,13 +195,14 @@ class _MealsScreenState extends State<MealsScreen> {
         title: Text('Your Meal Plan'),
       ),
       body: ListView.builder(
-        itemCount: 1 + widget.mealPlan.meals.length,
+        // itemCount: 1 + widget.mealPlan!.meals!.length,
+        itemCount: 5,
         itemBuilder: (BuildContext context, int index) {
           if (index == 0) {
             return _buildTotalNutrientsCard();
           }
-          Meal meal = widget.mealPlan.meals[index - 1];
-          return _buildMealCard(meal, index - 1);
+          // Meal meal = widget.mealPlan!.meals![index - 1];
+          return _buildMealCard(index - 1);
         },
       ),
     );

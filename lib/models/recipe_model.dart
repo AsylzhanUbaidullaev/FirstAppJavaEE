@@ -1,5 +1,5 @@
 class Recipe {
-  final String spoonacularSourceUrl;
+  final String? spoonacularSourceUrl;
   // Equipment
   // Ingredients
   // Steps

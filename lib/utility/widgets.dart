@@ -10,10 +10,11 @@ InputDecoration buildInputDecoration(String hintText, IconData icon) {
   );
 }
 
-MaterialButton longButtons(String title, Function fun,
+MaterialButton longButtons(String title,
+   Function fun,  
     {Color color: Colors.blue, Color textColor: Colors.white}) {
   return MaterialButton(
-    onPressed: fun,
+    onPressed: fun as void Function()?,
     textColor: textColor,
     color: color,
     child: SizedBox(
