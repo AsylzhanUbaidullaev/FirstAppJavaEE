@@ -2,6 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:super_app/screens/meals_screen.dart';
+import 'package:super_app/screens/search_screen.dart';
 class Login extends StatefulWidget {
 
   @override
@@ -25,7 +26,7 @@ class _LoginState extends State<Login> {
           primary: Colors.blueAccent
         ),
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => MealsScreen()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) => SearchScreen()));
             },
             child: Text(
           'Do Login',
